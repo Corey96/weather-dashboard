@@ -1,11 +1,32 @@
 
+let APIKey = "97d601c7b787e33bb03a501818bbfb9a"
+let country;
+let city;
+let fetchButton = document.getElementById('searchButton')
 
 
 
 
 
+function getApi() {
+  var queryURL = "http://api.openweathermap.org/data/2.5/weather?q={city}&appid=97d601c7b787e33bb03a501818bbfb9a"
 
-open weather api key - 97d601c7b787e33bb03a501818bbfb9a
+  fetch(queryURL)
+  .then(function (response) {
+      return response.json();
+  })
+  .then(function (data) {
+      for (var i =0; i < data.length; i++) {
+          var listItem = document.createElement('li');
+          listItem.textContent = data[i].html_url;
+          repoList.appendChild(listItem);
+      }
+  });
+}
+
+fetchButton.addEventListener('click', getApi);
+
+
 
 
 
