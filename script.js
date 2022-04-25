@@ -4,7 +4,12 @@ let country;
 let city;
 let fetchButton = document.getElementById('searchButton')
 
-
+// render date and time
+$("#today").text(moment().format("DD/MM/YYYY HH:mm:ss"));
+function updateTime() {
+  $("#today").text(moment().format("DD/MM/YYYY HH:mm:ss"));
+}
+setInterval(updateTime, 1000);
 
 
 
